@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Disway Group — Consultoria Especializada em Salesforce</title>
+  <meta name="description"
+    content="Disway Group: consultoria especializada em Salesforce (Sales, Service e Experience Cloud), integrações REST/SOAP, LWC e automações com IA." />
+  <meta property="og:title" content="Disway Group — Consultoria Especializada em Salesforce" />
+  <meta property="og:description"
+    content="Aceleramos resultados com Salesforce: arquitetura, desenvolvimento, integrações e governança de qualidade." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0a2540" />
+  <style>
+    :root {
+      --bg: #0a0c10;
+      --card: #0f141c;
+      --muted: #96a3b2;
+      --text: #eaf2ff;
+      --brand: #1b6fff;
+      --brand-2: #67e8f9;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color: var(--text);
+      background: var(--bg);
+      background-image: radial-gradient(60% 80% at 10% 10%, rgba(103, 232, 249, .08), transparent 60%), radial-gradient(50% 70% at 90% 20%, rgba(27, 111, 255, .10), transparent 60%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(10, 12, 16, .6);
+      backdrop-filter: saturate(140%) blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
+      z-index: 10
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      display: grid;
+      place-items: center;
+      box-shadow: 0 6px 14px rgba(27, 111, 255, .35)
+    }
+
+    .logo span {
+      font-weight: 800;
+      font-size: 18px
+    }
+
+    .tagline {
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03))
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, var(--brand), #1554c4);
+      border: none;
+      color: white;
+      box-shadow: 0 10px 24px rgba(27, 111, 255, .35)
+    }
+
+    .hero {
+      padding: 56px 0 20px
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 36px;
+      align-items: center
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .06);
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 50px);
+      line-height: 1.1;
+      margin: 14px 0
+    }
+
+    .hl {
+      background: linear-gradient(90deg, var(--brand), var(--brand-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    .sub {
+      font-size: clamp(16px, 2.4vw, 19px);
+      color: var(--muted);
+      max-width: 58ch
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02));
+      border: 1px solid rgba(255, 255, 255, .09);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px
+    }
+
+    .kpi {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .06);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center
+    }
+
+    section {
+      padding: 40px 0
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow)
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px
+    }
+
+    .step {
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02));
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 14px
+    }
+
+    .step .n {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, var(--brand), #0a48d0);
+      font-weight: 700
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px
+    }
+
+    .form {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow)
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      margin: 8px 0 6px;
+      color: var(--muted)
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: #0b1017;
+      color: var(--text)
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px
+    }
+
+    .hint {
+      font-size: 12px;
+      color: var(--muted)
+    }
+
+    .success,
+    .error {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 12px
+    }
+
+    .success {
+      background: rgba(48, 209, 88, .12);
+      border: 1px solid rgba(48, 209, 88, .35)
+    }
+
+    .error {
+      background: rgba(255, 69, 58, .10);
+      border: 1px solid rgba(255, 69, 58, .35)
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      padding: 26px 0;
+      color: var(--muted)
+    }
+
+    .foot {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 12px
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+      z-index: 60
+    }
+
+    .whatsapp svg {
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, .35))
+    }
+
+    @media (max-width: 980px) {
+
+      .hero-grid,
+      .contact {
+        grid-template-columns: 1fr
+      }
+
+      .cards {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .process {
+        grid-template-columns: 1fr 1fr
+      }
+    }
+
+    @media (max-width: 640px) {
+      .cards {
+        grid-template-columns: 1fr
+      }
+
+      .process {
+        grid-template-columns: 1fr
+      }
+
+      .form-row {
+        grid-template-columns: 1fr
+      }
+    }
+
+    #testOutput {
+      display: none;
+      white-space: pre-wrap;
+      background: #0f141c;
+      border: 1px solid rgba(255, 255, 255, .08);
+      padding: 12px;
+      border-radius: 12px;
+      margin: 16px 0
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>D</span></div>
+        <div>
+          <strong>Disway Group</strong>
+          <div class="tagline">Desafiando limites, criando futuros</div>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#servicos" data-i18n="nav.services">Serviços</a>
+        <a href="#framework" data-i18n="nav.framework">Framework</a>
+        <a href="#processo" data-i18n="nav.process">Processo</a>
+        <a href="#contato" class="btn btn-primary" data-i18n="nav.contact">Fale conosco</a>
+        <button id="langToggle" class="btn" type="button" aria-label="Switch language">PT/EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow" data-i18n="hero.eyebrow">Especialistas em Salesforce • Sales • Service •
+            Experience</span>
+          <h1 data-i18n="hero.title">Arquitetura, desenvolvimento e integrações que aceleram <span
+              class="hl">resultados</span>.</h1>
+          <p class="sub" data-i18n="hero.subtitle">Implementamos soluções Salesforce do zero ou otimizamos sua org
+            existente com foco em escalabilidade, performance e governança de qualidade — incluindo LWC, Apex, APIs
+            REST/SOAP e automações com IA.</p>
+          <div style="display:flex; gap:12px; margin-top:14px">
+            <a class="btn btn-primary" href="#contato" data-i18n="hero.ctaPrimary">Solicitar diagnóstico gratuito</a>
+            <a class="btn" href="#servicos" data-i18n="hero.ctaSecondary">Ver serviços</a>
+          </div>
+          <div class="kpis" aria-label="Indicadores">
+            <div class="kpi">
+              <div class="chip">Salesforce</div><b>Sales • Service • Experience</b>
+              <div class="muted" data-i18n="hero.kpiClouds">Clouds atendidas</div>
+            </div>
+            <div class="kpi">
+              <div class="chip">Boas práticas</div><b>Dev & Arch</b>
+              <div class="muted" data-i18n="hero.kpiQuality">CQ / CI • LWC • Apex</div>
+            </div>
+            <div class="kpi">
+              <div class="chip">Integrações</div><b>REST • SOAP • ETL</b>
+              <div class="muted" data-i18n="hero.kpiIntegrations">SAP, DocuSign, Twilio, Stripe…</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="hero-card">
+            <div class="chip" data-i18n="offer.badge">Oferta</div>
+            <h3 data-i18n="offer.title">Assessment técnico & roadmap</h3>
+            <p class="muted" data-i18n="offer.desc">Avaliação da sua org, qualidade de código e riscos. Entregamos plano
+              de ação e quick wins em 10–15 dias úteis.</p>
+            <ul class="muted" style="margin:10px 0 0 18px">
+              <li data-i18n="offer.item1">Revisão de arquitetura, automações e desempenho</li>
+              <li data-i18n="offer.item2">Check de segurança, limites e governança</li>
+              <li data-i18n="offer.item3">Backlog priorizado e esforço estimado</li>
+            </ul>
+            <div style="margin-top:12px; display:flex; gap:10px">
+              <a href="#contato" class="btn btn-primary" data-i18n="offer.cta1">Quero meu assessment</a>
+              <a href="#framework" class="btn" data-i18n="offer.cta2">Nosso framework</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos">
+      <div class="container">
+        <h2 data-i18n="services.title">Serviços</h2>
+        <p class="muted" data-i18n="services.subtitle">Atuamos ponta a ponta, da concepção à sustentação.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="chip" data-i18n="services.card1.badge">Implementação</div>
+            <h3 data-i18n="services.card1.title">Sales, Service & Experience Cloud</h3>
+            <p data-i18n="services.card1.desc">Discovery, desenho de objetos, automações, LWC, fluxos e community sites
+              com foco em UX e governança.</p>
+          </article>
+          <article class="card">
+            <div class="chip" data-i18n="services.card2.badge">Integrações</div>
+            <h3 data-i18n="services.card2.title">APIs REST/SOAP & ETL</h3>
+            <p data-i18n="services.card2.desc">Orquestração com Apex/OmniStudio. Experiência com SAP, DocuSign, HubSpot,
+              Twilio, Stripe e webhooks.</p>
+          </article>
+          <article class="card">
+            <div class="chip" data-i18n="services.card3.badge">Qualidade</div>
+            <h3 data-i18n="services.card3.title">Arquitetura & Code Health</h3>
+            <p data-i18n="services.card3.desc">Revisões de performance, padrões (Trigger Handler, Service, Factory),
+              testes, PMD e CI.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="framework">
+      <div class="container grid-2">
+        <div>
+          <h2 data-i18n="framework.title">Nosso framework de desenvolvimento</h2>
+          <p class="muted" data-i18n="framework.subtitle">Padronizamos entregas e aceleramos time-to-value com um
+            conjunto de práticas, templates e automações.</p>
+          <ul style="margin-left:18px">
+            <li data-i18n="framework.item1"><b>Arquitetura limpa:</b> Trigger Handler, Services, Repos, DTOs, eventos.
+            </li>
+            <li data-i18n="framework.item2"><b>Qualidade contínua:</b> PMD, testes, coverage e code review guiado.</li>
+            <li data-i18n="framework.item3"><b>DevEx & CI:</b> SFDX, GitHub Actions, rotas de deploy (release/main), PMD
+              no PR.</li>
+            <li data-i18n="framework.item4"><b>Observabilidade:</b> logs estruturados, auditoria e alertas.</li>
+            <li data-i18n="framework.item5"><b>Segurança & limites:</b> bulk, FLS/CRUD, limites de governor.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="chip" data-i18n="framework.result.badge">Resultado</div>
+          <h3 data-i18n="framework.result.title">Mais velocidade, menos risco</h3>
+          <p class="muted" data-i18n="framework.result.desc">Entregas consistentes, código sustentável e previsibilidade
+            para o negócio.</p>
+          <div class="kpis">
+            <div class="kpi"><b data-i18n="framework.kpi1.title">↑ Velocidade</b>
+              <div class="muted" data-i18n="framework.kpi1.desc">Templates & CI</div>
+            </div>
+            <div class="kpi"><b data-i18n="framework.kpi2.title">↓ Retrabalho</b>
+              <div class="muted" data-i18n="framework.kpi2.desc">Padrões & review</div>
+            </div>
+            <div class="kpi"><b data-i18n="framework.kpi3.title">↑ Qualidade</b>
+              <div class="muted" data-i18n="framework.kpi3.desc">Métricas & PMD</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="processo">
+      <div class="container">
+        <h2 data-i18n="process.title">Como trabalhamos</h2>
+        <p class="muted" data-i18n="process.subtitle">Transparência, cadência e foco em valor.</p>
+        <div class="process">
+          <div class="step">
+            <div class="n">1</div>
+            <h3 data-i18n="process.step1">Discovery</h3>
+            <p class="muted" data-i18n="process.step1.desc">Alinhamento de objetivos, riscos e KPIs.</p>
+          </div>
+          <div class="step">
+            <div class="n">2</div>
+            <h3 data-i18n="process.step2">Blueprint</h3>
+            <p class="muted" data-i18n="process.step2.desc">Arquitetura alvo e plano de execução.</p>
+          </div>
+          <div class="step">
+            <div class="n">3</div>
+            <h3 data-i18n="process.step3">Entrega</h3>
+            <p class="muted" data-i18n="process.step3.desc">Sprints curtas, demos e QA contínuo.</p>
+          </div>
+          <div class="step">
+            <div class="n">4</div>
+            <h3 data-i18n="process.step4">Operar</h3>
+            <p class="muted" data-i18n="process.step4.desc">Sustentação, evolução e governança.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="container contact">
+        <div class="form" aria-labelledby="ctitle">
+          <h2 id="ctitle" data-i18n="contact.title">Vamos conversar?</h2>
+          <p class="muted" data-i18n="contact.subtitle">Conte um pouco sobre sua necessidade. Responderemos em breve.
+          </p>
+          <form id="leadForm" novalidate>
+            <div class="form-row">
+              <div>
+                <label for="nome" data-i18n="form.name.label">Nome *</label>
+                <input id="nome" name="nome" autocomplete="name" required placeholder="Seu nome" />
+              </div>
+              <div>
+                <label for="email" data-i18n="form.email.label">E-mail *</label>
+                <input id="email" name="email" type="email" autocomplete="email" required
+                  placeholder="voce@empresa.com" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="empresa" data-i18n="form.company.label">Empresa</label>
+                <input id="empresa" name="empresa" placeholder="Nome da empresa" />
+              </div>
+              <div>
+                <label for="telefone" data-i18n="form.phone.label">Telefone/WhatsApp</label>
+                <input id="telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="interesse" data-i18n="form.interest.label">Interesse</label>
+                <select id="interesse" name="interesse">
+                  <option value="Assessment" data-i18n="form.interest.opt1">Assessment técnico</option>
+                  <option value="Implementacao" data-i18n="form.interest.opt2">Implementação</option>
+                  <option value="Integracoes" data-i18n="form.interest.opt3">Integrações</option>
+                  <option value="Suporte" data-i18n="form.interest.opt4">Suporte / Sustentação</option>
+                </select>
+              </div>
+              <div>
+                <label for="origem" data-i18n="form.source.label">Como nos encontrou?</label>
+                <select id="origem" name="origem">
+                  <option data-i18n="form.source.opt1">LinkedIn</option>
+                  <option data-i18n="form.source.opt2">Indicação</option>
+                  <option data-i18n="form.source.opt3">Pesquisa Google</option>
+                  <option data-i18n="form.source.opt4">Evento</option>
+                </select>
+              </div>
+            </div>
+            <label for="mensagem" data-i18n="form.message.label">Mensagem *</label>
+            <textarea id="mensagem" name="mensagem" required
+              placeholder="Descreva brevemente o contexto e objetivo."></textarea>
+            <div class="hint" data-i18n="form.required">* Campos obrigatórios</div>
+            <div style="display:flex; gap:10px; margin-top:12px">
+              <button class="btn btn-primary" type="submit" data-i18n="form.submit">Enviar</button>
+              <button class="btn" type="button" id="baixarJson" data-i18n="form.download">Baixar lead (.json)</button>
+            </div>
+            <div class="success" id="okMsg" data-i18n="form.success">Recebemos seus dados. Entraremos em contato em
+              breve.</div>
+            <div class="error" id="errMsg" data-i18n="form.error">Verifique os campos obrigatórios e o formato do
+              e‑mail.</div>
+          </form>
+        </div>
+        <div>
+          <div class="card">
+            <div class="chip" data-i18n="contact.card.badge">Contato</div>
+            <h3>Disway Group</h3>
+            <ul class="muted" style="margin-left:18px">
+              <li><span data-i18n="contact.card.email">E-mail</span>: <a
+                  href="mailto:contato@diswaygroup.com">contato@diswaygroup.com</a></li>
+              <li><span data-i18n="contact.card.site">Site</span>: diswaygroup.com</li>
+              <li><span data-i18n="contact.card.scope">Atuação</span>: <span data-i18n="contact.card.scope.val">Brasil e
+                  internacional (remoto)</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>© <span id="year"></span> Disway Group — <span data-i18n="footer.tagline">Seu CRM em boas mãos.</span></div>
+      <div style="display:flex; gap:10px">
+        <a class="btn" href="#framework" data-i18n="footer.framework">Framework</a>
+        <a class="btn" href="#contato" data-i18n="footer.contact">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a id="wa" class="whatsapp" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="white" aria-hidden="true">
+      <path
+        d="M19.11 17.09c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.62.14-.18.27-.71.88-.87 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.35-.8-.72-1.34-1.6-1.5-1.87-.16-.27-.02-.41.12-.55.12-.12.27-.32.4-.48.13-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.62-1.5-.85-2.05-.22-.53-.45-.46-.62-.47h-.53c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.26 0 1.33.97 2.62 1.1 2.8.14.18 1.92 2.93 4.65 4.1.65.28 1.15.45 1.55.57.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.18.16-1.29-.07-.11-.25-.18-.52-.32z" />
+    </svg>
+  </a>
+
+  <pre id="testOutput" aria-hidden="true"></pre>
+
+  <script>
+    // ====== App bootstrap (DOM safe) ======
+    (function () {
+      const $ = (q, el = document) => el.querySelector(q);
+      const $$ = (q, el = document) => Array.from(el.querySelectorAll(q));
+
+      function safeTextContent(sel, text) { const el = $(sel); if (el) el.textContent = text; }
+      function safeInnerHTML(sel, html) { const el = $(sel); if (el) el.innerHTML = html; }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        // 1) Footer year (safe)
+        safeTextContent('#year', String(new Date().getFullYear()));
+
+        // 2) WhatsApp button
+        const wa = $('#wa');
+        if (wa) {
+          wa.dataset.whatsapp = wa.dataset.whatsapp || '5599999999999';
+          wa.addEventListener('click', () => {
+            const phone = wa.dataset.whatsapp || '';
+            const url = phone ? `https://wa.me/${phone}` : '#';
+            wa.setAttribute('href', url);
+          });
+        }
+
+        // 3) Form handling (Formspree)
+        const form = $('#leadForm');
+        const okMsg = $('#okMsg');
+        const errMsg = $('#errMsg');
+        const dlBtn = $('#baixarJson');
+
+        const FORMSPREE_URL = 'https://formspree.io/f/XXXXABCD'; // TODO: troque pelo seu endpoint real
+
+        function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+        if (form) {
+          form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (errMsg) errMsg.style.display = 'none';
+            if (okMsg) okMsg.style.display = 'none';
+
+            const data = Object.fromEntries(new FormData(form).entries());
+            if (!data.nome || !data.email || !data.mensagem || !isEmail(data.email)) {
+              if (errMsg) errMsg.style.display = 'block';
+              return;
+            }
+
+            const payload = { ...data, ts: new Date().toISOString(), site: 'Disway Group' };
+
+            try {
+              if (!FORMSPREE_URL || /XXXXABCD/.test(FORMSPREE_URL)) throw new Error('FORMSPREE_URL not configured');
+              const res = await fetch(FORMSPREE_URL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(payload) });
+              if (!res.ok) throw new Error('Formspree error: ' + res.status);
+              if (okMsg) { okMsg.textContent = okMsg.textContent || 'Recebemos seus dados. Entraremos em contato em breve.'; okMsg.style.display = 'block'; }
+              form.reset();
+            } catch (err) { console.error(err); if (errMsg) { errMsg.textContent = 'Não foi possível enviar agora (configure o endpoint do Formspree).'; errMsg.style.display = 'block'; } }
+          });
+        }
+
+        if (dlBtn && form) {
+          dlBtn.addEventListener('click', () => {
+            const data = Object.fromEntries(new FormData(form).entries());
+            const json = JSON.stringify({ ...data, ts: new Date().toISOString() }, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = 'lead-disway.json';
+            document.body.appendChild(a); a.click(); URL.revokeObjectURL(url); a.remove();
+          });
+        }
+
+        // 4) i18n PT/EN (single source of truth)
+        const dicts = {
+          pt: {
+            'nav.services': 'Serviços', 'nav.framework': 'Framework', 'nav.process': 'Processo', 'nav.contact': 'Fale conosco',
+            'hero.eyebrow': 'Especialistas em Salesforce • Sales • Service • Experience',
+            'hero.title': 'Arquitetura, desenvolvimento e integrações que aceleram <span class="hl">resultados</span>.',
+            'hero.subtitle': 'Implementamos soluções Salesforce do zero ou otimizamos sua org existente com foco em escalabilidade, performance e governança de qualidade — incluindo LWC, Apex, APIs REST/SOAP e automações com IA.',
+            'hero.ctaPrimary': 'Solicitar diagnóstico gratuito', 'hero.ctaSecondary': 'Ver serviços',
+            'hero.kpiClouds': 'Clouds atendidas', 'hero.kpiQuality': 'CQ / CI • LWC • Apex', 'hero.kpiIntegrations': 'SAP, DocuSign, Twilio, Stripe…',
+            'offer.badge': 'Oferta', 'offer.title': 'Assessment técnico & roadmap', 'offer.desc': 'Avaliação da sua org, qualidade de código e riscos. Entregamos plano de ação e quick wins em 10–15 dias úteis.',
+            'offer.item1': 'Revisão de arquitetura, automações e desempenho', 'offer.item2': 'Check de segurança, limites e governança', 'offer.item3': 'Backlog priorizado e esforço estimado', 'offer.cta1': 'Quero meu assessment', 'offer.cta2': 'Nosso framework',
+            'services.title': 'Serviços', 'services.subtitle': 'Atuamos ponta a ponta, da concepção à sustentação.',
+            'services.card1.badge': 'Implementação', 'services.card1.title': 'Sales, Service & Experience Cloud', 'services.card1.desc': 'Discovery, desenho de objetos, automações, LWC, fluxos e community sites com foco em UX e governança.',
+            'services.card2.badge': 'Integrações', 'services.card2.title': 'APIs REST/SOAP & ETL', 'services.card2.desc': 'Orquestração com Apex/OmniStudio. Experiência com SAP, DocuSign, HubSpot, Twilio, Stripe e webhooks.',
+            'services.card3.badge': 'Qualidade', 'services.card3.title': 'Arquitetura & Code Health', 'services.card3.desc': 'Revisões de performance, padrões (Trigger Handler, Service, Factory), testes, PMD e CI.',
+            'framework.title': 'Nosso framework de desenvolvimento', 'framework.subtitle': 'Padronizamos entregas e aceleramos time-to-value com um conjunto de práticas, templates e automações.',
+            'framework.item1': 'Arquitetura limpa: Trigger Handler, Services, Repos, DTOs, eventos.', 'framework.item2': 'Qualidade contínua: PMD, testes, coverage e code review guiado.', 'framework.item3': 'DevEx & CI: SFDX, GitHub Actions, rotas de deploy (release/main), PMD no PR.', 'framework.item4': 'Observabilidade: logs estruturados, auditoria e alertas.', 'framework.item5': 'Segurança & limites: bulk, FLS/CRUD, limites de governor.',
+            'framework.result.badge': 'Resultado', 'framework.result.title': 'Mais velocidade, menos risco', 'framework.result.desc': 'Entregas consistentes, código sustentável e previsibilidade para o negócio.',
+            'framework.kpi1.title': '↑ Velocidade', 'framework.kpi1.desc': 'Templates & CI', 'framework.kpi2.title': '↓ Retrabalho', 'framework.kpi2.desc': 'Padrões & review', 'framework.kpi3.title': '↑ Qualidade', 'framework.kpi3.desc': 'Métricas & PMD',
+            'process.title': 'Como trabalhamos', 'process.subtitle': 'Transparência, cadência e foco em valor.',
+            'process.step1': 'Discovery', 'process.step1.desc': 'Alinhamento de objetivos, riscos e KPIs.', 'process.step2': 'Blueprint', 'process.step2.desc': 'Arquitetura alvo e plano de execução.', 'process.step3': 'Entrega', 'process.step3.desc': 'Sprints curtas, demos e QA contínuo.', 'process.step4': 'Operar', 'process.step4.desc': 'Sustentação, evolução e governança.',
+            'contact.title': 'Vamos conversar?', 'contact.subtitle': 'Conte um pouco sobre sua necessidade. Responderemos em breve.',
+            'form.name.label': 'Nome *', 'form.email.label': 'E-mail *', 'form.company.label': 'Empresa', 'form.phone.label': 'Telefone/WhatsApp', 'form.interest.label': 'Interesse', 'form.source.label': 'Como nos encontrou?', 'form.message.label': 'Mensagem *',
+            'form.interest.opt1': 'Assessment técnico', 'form.interest.opt2': 'Implementação', 'form.interest.opt3': 'Integrações', 'form.interest.opt4': 'Suporte / Sustentação',
+            'form.source.opt1': 'LinkedIn', 'form.source.opt2': 'Indicação', 'form.source.opt3': 'Pesquisa Google', 'form.source.opt4': 'Evento',
+            'form.required': '* Campos obrigatórios', 'form.submit': 'Enviar', 'form.download': 'Baixar lead (.json)', 'form.success': 'Recebemos seus dados. Entraremos em contato em breve.', 'form.error': 'Verifique os campos obrigatórios e o formato do e‑mail.',
+            'contact.card.badge': 'Contato', 'contact.card.email': 'E-mail', 'contact.card.site': 'Site', 'contact.card.scope': 'Atuação', 'contact.card.scope.val': 'Brasil e internacional (remoto)',
+            'footer.tagline': 'Seu CRM em boas mãos.', 'footer.framework': 'Framework', 'footer.contact': 'Contato'
+          },
+          en: {
+            'nav.services': 'Services', 'nav.framework': 'Framework', 'nav.process': 'Process', 'nav.contact': 'Contact us',
+            'hero.eyebrow': 'Salesforce Specialists • Sales • Service • Experience',
+            'hero.title': 'Architecture, development, and integrations that accelerate <span class="hl">results</span>.',
+            'hero.subtitle': 'We implement Salesforce solutions from scratch or optimize your existing org with scalability, performance, and quality governance — including LWC, Apex, REST/SOAP APIs, and AI automations.',
+            'hero.ctaPrimary': 'Request free assessment', 'hero.ctaSecondary': 'See services',
+            'hero.kpiClouds': 'Supported Clouds', 'hero.kpiQuality': 'CQ / CI • LWC • Apex', 'hero.kpiIntegrations': 'SAP, DocuSign, Twilio, Stripe…',
+            'offer.badge': 'Offer', 'offer.title': 'Technical assessment & roadmap', 'offer.desc': 'We review your org, code quality and risks. Action plan and quick wins delivered within 10–15 business days.',
+            'offer.item1': 'Architecture, automations and performance review', 'offer.item2': 'Security, limits and governance checks', 'offer.item3': 'Prioritized backlog with effort sizing', 'offer.cta1': 'I want my assessment', 'offer.cta2': 'Our framework',
+            'services.title': 'Services', 'services.subtitle': 'End-to-end delivery, from discovery to support.',
+            'services.card1.badge': 'Implementation', 'services.card1.title': 'Sales, Service & Experience Cloud', 'services.card1.desc': 'Object design, automations, LWC, flows and community sites focused on UX and governance.',
+            'services.card2.badge': 'Integrations', 'services.card2.title': 'REST/SOAP APIs & ETL', 'services.card2.desc': 'Orchestration with Apex/OmniStudio. Experience with SAP, DocuSign, HubSpot, Twilio, Stripe and webhooks.',
+            'services.card3.badge': 'Quality', 'services.card3.title': 'Architecture & Code Health', 'services.card3.desc': 'Performance reviews, patterns (Trigger Handler, Service, Factory), testing, PMD and CI.',
+            'framework.title': 'Our development framework', 'framework.subtitle': 'We standardize delivery and speed up time-to-value with practices, templates and automation.',
+            'framework.item1': 'Clean architecture: Trigger Handler, Services, Repos, DTOs, events.', 'framework.item2': 'Continuous quality: PMD, tests, coverage and guided code reviews.', 'framework.item3': 'DevEx & CI: SFDX, GitHub Actions, deploy routes (release/main), PMD on PRs.', 'framework.item4': 'Observability: structured logs, audit and alerts.', 'framework.item5': 'Security & limits: bulk, FLS/CRUD, governor limits.',
+            'framework.result.badge': 'Result', 'framework.result.title': 'Faster, less risk', 'framework.result.desc': 'Consistent delivery, sustainable code and business predictability.',
+            'framework.kpi1.title': '↑ Speed', 'framework.kpi1.desc': 'Templates & CI', 'framework.kpi2.title': '↓ Rework', 'framework.kpi2.desc': 'Patterns & reviews', 'framework.kpi3.title': '↑ Quality', 'framework.kpi3.desc': 'Metrics & PMD',
+            'process.title': 'How we work', 'process.subtitle': 'Transparency, cadence and value focus.',
+            'process.step1': 'Discovery', 'process.step1.desc': 'Objectives, risks and KPIs alignment.', 'process.step2': 'Blueprint', 'process.step2.desc': 'Target architecture and execution plan.', 'process.step3': 'Delivery', 'process.step3.desc': 'Short sprints, demos and continuous QA.', 'process.step4': 'Operate', 'process.step4.desc': 'Support, evolution and governance.',
+            'contact.title': "Let's talk?", 'contact.subtitle': 'Tell us about your needs. We will get back to you soon.',
+            'form.name.label': 'Name *', 'form.email.label': 'Email *', 'form.company.label': 'Company', 'form.phone.label': 'Phone/WhatsApp', 'form.interest.label': 'Interest', 'form.source.label': 'How did you find us?', 'form.message.label': 'Message *',
+            'form.interest.opt1': 'Technical assessment', 'form.interest.opt2': 'Implementation', 'form.interest.opt3': 'Integrations', 'form.interest.opt4': 'Support / Sustainment',
+            'form.source.opt1': 'LinkedIn', 'form.source.opt2': 'Referral', 'form.source.opt3': 'Google Search', 'form.source.opt4': 'Event',
+            'form.required': '* Required fields', 'form.submit': 'Send', 'form.download': 'Download lead (.json)', 'form.success': 'Thanks! We will get back to you shortly.', 'form.error': 'Please check required fields and e‑mail format.',
+            'contact.card.badge': 'Contact', 'contact.card.email': 'Email', 'contact.card.site': 'Website', 'contact.card.scope': 'Coverage', 'contact.card.scope.val': 'Brazil & International (remote)',
+            'footer.tagline': 'Your CRM in good hands.', 'footer.framework': 'Framework', 'footer.contact': 'Contact'
+          }
+        };
+
+        let lang = (document.documentElement.lang || 'pt-BR').toLowerCase().startsWith('en') ? 'en' : 'pt';
+        function applyI18n() {
+          const d = dicts[lang];
+          document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (!d[key]) return;
+            if (key === 'hero.title') { el.innerHTML = d[key]; }
+            else { el.textContent = d[key]; }
+          });
+        }
+        applyI18n();
+
+        const langBtn = document.getElementById('langToggle');
+        if (langBtn) {
+          const updateLabel = () => { langBtn.textContent = (lang === 'pt' ? 'PT/EN' : 'EN/PT'); };
+          updateLabel();
+          langBtn.addEventListener('click', () => { lang = (lang === 'pt' ? 'en' : 'pt'); applyI18n(); updateLabel(); });
+        }
+
+        // 5) Minimal self-tests (diagnostics)
+        (function runDiagnostics() {
+          const out = [];
+          function ok(name, cond) { out.push(`${cond ? '✅' : '❌'} ${name}`); return !!cond; }
+          ok('#year exists', !!document.getElementById('year'));
+          ok('#wa exists', !!document.getElementById('wa'));
+          ok('#leadForm exists', !!document.getElementById('leadForm'));
+          ok('#langToggle exists', !!document.getElementById('langToggle'));
+          const before = document.querySelector('[data-i18n="nav.contact"]').textContent;
+          lang = 'en'; applyI18n();
+          const after = document.querySelector('[data-i18n="nav.contact"]').textContent;
+          ok('i18n switches PT→EN', before !== after);
+          lang = 'pt'; applyI18n();
+          const pre = document.getElementById('testOutput');
+          if (pre) { pre.textContent = out.join('\n'); }
+          console.log('\n[Diagnostics]\n' + out.join('\n'));
+        })();
+      });
+    })();
+  </script>
+</body>
+
+</html>
