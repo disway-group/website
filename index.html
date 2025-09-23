@@ -67,21 +67,86 @@
       padding: 0 20px
     }
 
+    /* Base já existente */
     header {
       position: sticky;
       top: 0;
       background: rgba(10, 12, 16, .6);
       backdrop-filter: saturate(140%) blur(8px);
       border-bottom: 1px solid rgba(255, 255, 255, .06);
-      z-index: 10
+      z-index: 20;
     }
 
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px
+      height: 72px;
     }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    /* ======= Burger ======= */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 30;
+    }
+
+    .burger span {
+      width: 28px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* ======= Mobile ======= */
+    @media (max-width: 768px) {
+      .burger {
+        display: flex;
+      }
+
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 12, 16, 0.95);
+        backdrop-filter: blur(6px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 28px;
+        transform: translateX(100%);
+        height: 300px;
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      /* Animação do X */
+      .burger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .burger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .burger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+
 
     .brand {
       display: flex;
@@ -447,7 +512,7 @@
     .link {
       display: block;
       position: relative;
-      margin-inline: 25px;
+      margin-inline: 20px;
       color: #fff;
     }
 
@@ -470,6 +535,7 @@
 </head>
 
 <body>
+
   <header>
     <div class="container nav">
       <div class="brand">
@@ -481,11 +547,20 @@
           <div class="tagline">Desafiando limites, criando futuros</div>
         </div>
       </div>
+
+      <!-- Botão hamburguer só no mobile -->
+      <button class="burger" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Links -->
       <nav class="nav-links">
         <a class="link" href="#servicos" data-i18n="nav.services">Serviços</a>
         <a class="link" href="#framework" data-i18n="nav.framework">Framework</a>
         <a class="link" href="#processo" data-i18n="nav.process">Processo</a>
-        <a class="link" href="#contato" class="btn btn-primary" data-i18n="nav.contact">Contato</a>
+        <a class="link" href="#contato" data-i18n="nav.contact">Contato</a>
         <button id="langToggle" class="btn at_the_same_time" type="button" aria-label="Switch language">PT/EN</button>
       </nav>
     </div>
@@ -753,6 +828,15 @@
   <pre id="testOutput" aria-hidden="true"></pre>
 
   <script>
+
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
     // ====== App bootstrap (DOM safe) ======
     (function () {
       const $ = (q, el = document) => el.querySelector(q);
