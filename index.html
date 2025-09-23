@@ -107,6 +107,16 @@
       color: var(--muted)
     }
 
+    @media (max-width: 768px) {
+      .tagline {
+        display: none;
+      }
+
+      .logo-title {
+        display: none;
+      }
+    }
+
     .nav-links {
       display: flex;
       gap: 20px;
@@ -226,6 +236,14 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 22px
+    }
+
+    @media (max-width: 768px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        /* mais espaço no mobile */
+      }
     }
 
     .process {
@@ -365,8 +383,8 @@
       .social {
         justify-content: center;
       }
-    }
 
+    }
 
     .whatsapp {
       position: fixed;
@@ -459,7 +477,7 @@
           <img src="./assets/disway-logo-no-bg.png" alt="D">
         </div>
         <div>
-          <strong>Disway Group</strong>
+          <strong class="logo-title">Disway Group</strong>
           <div class="tagline">Desafiando limites, criando futuros</div>
         </div>
       </div>
@@ -467,7 +485,7 @@
         <a class="link" href="#servicos" data-i18n="nav.services">Serviços</a>
         <a class="link" href="#framework" data-i18n="nav.framework">Framework</a>
         <a class="link" href="#processo" data-i18n="nav.process">Processo</a>
-        <a class="link" href="#contato" class="btn btn-primary" data-i18n="nav.contact">Fale conosco</a>
+        <a class="link" href="#contato" class="btn btn-primary" data-i18n="nav.contact">Contato</a>
         <button id="langToggle" class="btn at_the_same_time" type="button" aria-label="Switch language">PT/EN</button>
       </nav>
     </div>
@@ -806,7 +824,7 @@
         // 4) i18n PT/EN (single source of truth)
         const dicts = {
           pt: {
-            'nav.services': 'Serviços', 'nav.framework': 'Framework', 'nav.process': 'Processo', 'nav.contact': 'Fale conosco',
+            'nav.services': 'Serviços', 'nav.framework': 'Framework', 'nav.process': 'Processo', 'nav.contact': 'Contato',
             'hero.eyebrow': 'Especialistas em Salesforce • Sales • Service • Experience',
             'hero.title': 'Arquitetura, desenvolvimento e integrações que aceleram <span class="hl">resultados</span>.',
             'hero.subtitle': 'Implementamos soluções Salesforce do zero ou otimizamos sua org existente com foco em escalabilidade, performance e governança de qualidade — incluindo LWC, Apex, APIs REST/SOAP e automações com IA.',
