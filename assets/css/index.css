@@ -16,6 +16,7 @@
 html,
 body {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -109,7 +110,7 @@ header {
 
     /* Animação do X */
     .burger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg) translate(6px, 5px);
     }
 
     .burger.active span:nth-child(2) {
@@ -133,12 +134,12 @@ header {
     background: #fff;
     display: grid;
     place-items: center;
-    box-shadow: 0 6px 14px rgba(27, 111, 255, .35)
 }
 
 .logo img {
     width: 45px;
     height: 45px;
+    scale: 1.1;
 }
 
 .tagline {
@@ -268,7 +269,8 @@ section {
     border: 1px solid rgba(255, 255, 255, .08);
     border-radius: var(--radius);
     padding: 20px;
-    box-shadow: var(--shadow)
+    box-shadow: var(--shadow);
+    min-width: 375px;
 }
 
 .grid-2 {
@@ -494,89 +496,4 @@ footer {
 .link:hover::before {
     width: 100%;
     z-index: -1;
-}
-
-
-/*SERVICES*/
-
-.services {
-    background-color: var(--background-color);
-}
-
-.service-item {
-    box-shadow: var(--shadow-black100);
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    transition: all .5s ease;
-    height: 330px;
-    cursor: pointer;
-}
-
-.service-item:hover {
-    background-color: var(--main-color);
-}
-
-.service-item .icon {
-    height: 60px;
-    width: 60px;
-    margin: 0 auto 30px;
-    text-align: center;
-    font-size: 30px;
-    color: var(--white);
-    position: relative;
-    z-index: 1;
-    transition: all .5s ease;
-}
-
-.service-item:hover .icon {
-    color: var(--main-color);
-    font-size: 20px;
-}
-
-.service-item .icon::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    border-bottom-right-radius: 0;
-    background-color: var(--main-color);
-    z-index: -1;
-    transition: all .5s ease;
-}
-
-.service-item:hover .icon::before {
-    background-color: var(--white);
-}
-
-.service-item .icon i {
-    line-height: 60px;
-}
-
-.service-item h3 {
-    font-size: 22px;
-    margin: 0 0 20px;
-    color: var(--text-color);
-    font-weight: 500;
-    text-transform: capitalize;
-}
-
-.service-item:hover h3,
-.service-item:hover p {
-    color: var(--white);
-}
-
-.service-item p {
-    font-size: 16px;
-    line-height: 26px;
-    font-weight: 300;
-    color: var(--text-color-second);
-    margin: 0 0 15px;
 }

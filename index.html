@@ -59,6 +59,7 @@
   <main>
     <section class="hero">
       <div class="container hero-grid">
+        <!-- Coluna esquerda -->
         <div>
           <span class="eyebrow" data-i18n="hero.eyebrow">Especialistas em Salesforce • Sales • Service •
             Experience</span>
@@ -71,21 +72,9 @@
             <a class="btn btn-primary" href="#contato" data-i18n="hero.ctaPrimary">Solicitar diagnóstico gratuito</a>
             <a class="btn" href="#servicos" data-i18n="hero.ctaSecondary">Ver serviços</a>
           </div>
-          <div class="kpis" aria-label="Indicadores">
-            <div class="kpi">
-              <div class="chip">Salesforce</div><b>Sales • Service • Experience</b>
-              <div class="muted" data-i18n="hero.kpiClouds">Clouds atendidas</div>
-            </div>
-            <div class="kpi">
-              <div class="chip">Boas práticas</div><b>Dev & Arch</b>
-              <div class="muted" data-i18n="hero.kpiQuality">CQ / CI • LWC • Apex</div>
-            </div>
-            <div class="kpi">
-              <div class="chip">Integrações</div><b>REST • SOAP • ETL</b>
-              <div class="muted" data-i18n="hero.kpiIntegrations">SAP, DocuSign, Twilio, Stripe…</div>
-            </div>
-          </div>
         </div>
+
+        <!-- Coluna direita -->
         <div>
           <div class="hero-card">
             <div class="chip" data-i18n="offer.badge">Oferta</div>
@@ -105,6 +94,32 @@
         </div>
       </div>
     </section>
+
+    <!-- Nova seção KPIs no mesmo esquema -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="cards">
+            <article class="card">
+              <div class="chip">Salesforce</div>
+              <h3>Sales • Service • Experience</h3>
+              <p class="muted" data-i18n="hero.kpiClouds">Clouds atendidas</p>
+            </article>
+            <article class="card">
+              <div class="chip">Boas práticas</div>
+              <h3>Dev &amp; Arch</h3>
+              <p class="muted" data-i18n="hero.kpiQuality">CQ / CI • LWC • Apex</p>
+            </article>
+            <article class="card">
+              <div class="chip">Integrações</div>
+              <h3>REST • SOAP • ETL</h3>
+              <p class="muted" data-i18n="hero.kpiIntegrations">SAP, DocuSign, Twilio, Stripe…</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <section id="servicos">
       <div class="container">
