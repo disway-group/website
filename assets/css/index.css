@@ -486,3 +486,69 @@ footer {
     width: 100%;
     z-index: -1;
 }
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 24px;
+    max-height: 250px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 
+.contact-card:hover {
+    box-shadow: 0 12px 32px var(--card);
+} */
+
+.contact-card .chip {
+    display: inline-block;
+    font-size: 12px;
+    padding: 4px 10px;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    color: #fff;
+    border-radius: 50px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-card h3 {
+    margin: 0 0 16px 0;
+    font-size: 20px;
+    color: #fff;
+}
+
+.contact-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-card li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+    color: #ddd;
+    font-size: 14px;
+}
+
+.contact-card li a {
+    color: #4facfe;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-card li a:hover {
+    color: var(--brand);
+}
+
+.contact-card .icon {
+    width: 20px;
+    height: 20px;
+    stroke: #4facfe;
+    flex-shrink: 0;
+}
