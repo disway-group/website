@@ -147,16 +147,6 @@ header {
     color: var(--muted)
 }
 
-@media (max-width: 768px) {
-    .tagline {
-        display: none;
-    }
-
-    .logo-title {
-        display: none;
-    }
-}
-
 .nav-links {
     display: flex;
     gap: 20px;
@@ -188,7 +178,6 @@ header {
     background: linear-gradient(180deg, var(--brand), #1554c4);
     border: none;
     color: #ffffff;
-    box-shadow: 0 10px 24px rgba(27, 111, 255, .35)
 }
 
 .hero {
