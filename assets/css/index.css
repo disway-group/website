@@ -171,13 +171,17 @@ header {
 }
 
 .btn:hover {
-    border-color: #fff;
+    opacity: 0.7;
 }
 
 .btn-primary {
     background: linear-gradient(180deg, var(--brand), #1554c4);
     border: none;
     color: #ffffff;
+}
+
+.btn-primary:hover {
+    opacity: 0.7;
 }
 
 .hero {
@@ -225,7 +229,40 @@ h1 {
     border: 1px solid rgba(255, 255, 255, .09);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    padding: 18px
+    padding: 20px
+}
+
+.hero-card h3 {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.hero-card ul {
+    padding: 0px;
+    margin: 10px 0px 20px 20px;
+}
+
+.hero-card .muted-link {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-card .muted-link a {
+    color: #4facfe;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.hero-card .muted-link a:hover {
+    color: var(--brand);
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
 }
 
 .kpis {
@@ -260,6 +297,15 @@ section {
     padding: 20px;
     box-shadow: var(--shadow);
     min-width: 375px;
+    transition: 0.2s ease-in-out;
+}
+
+.card-hover {
+    cursor: pointer;
+}
+
+.card-hover:hover {
+    transform: translateY(-10px);
 }
 
 .grid-2 {
@@ -503,7 +549,8 @@ footer {
     box-shadow: 0 12px 32px var(--card);
 } */
 
-.contact-card .chip {
+.contact-card .chip,
+.hero-card .chip {
     display: inline-block;
     font-size: 12px;
     padding: 4px 10px;
@@ -511,7 +558,6 @@ footer {
     color: #fff;
     border-radius: 50px;
     margin-bottom: 12px;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
