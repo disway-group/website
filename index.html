@@ -103,21 +103,36 @@
         <div>
           <div class="cards">
             <article class="card card-hover">
-              <div class="chip">Salesforce</div>
-              <h3>Sales • Service • Experience</h3>
-              <p class="muted" data-i18n="hero.kpiClouds">Clouds atendidas</p>
+              <div class="icon">
+                <i data-lucide="cloud"></i>
+              </div>
+              <h3>Clouds atendidas</h3>
+              <p class="muted" data-i18n="hero.kpiClouds">Sales • Service • Experience</p>
             </article>
+
             <article class="card card-hover">
-              <div class="chip">Boas práticas</div>
+              <div class="icon">
+                <i data-lucide="code-2"></i>
+              </div>
               <h3>Dev &amp; Arch</h3>
               <p class="muted" data-i18n="hero.kpiQuality">CQ / CI • LWC • Apex</p>
             </article>
+
             <article class="card card-hover">
-              <div class="chip">Integrações</div>
+              <div class="icon">
+                <i data-lucide="git-branch"></i>
+              </div>
               <h3>REST • SOAP • ETL</h3>
               <p class="muted" data-i18n="hero.kpiIntegrations">SAP, DocuSign, Twilio, Stripe…</p>
             </article>
           </div>
+
+          <!-- Import Lucide -->
+          <script src="https://unpkg.com/lucide@latest"></script>
+          <script>
+            lucide.createIcons();
+          </script>
+
         </div>
       </div>
     </section>
@@ -175,7 +190,6 @@
           <div class="kpis">
             <div class="kpi">
               <b>
-                <!-- Arrow up -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon kpi-arrow-up" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" width="18" height="18">
                   <path d="M12 19V5M5 12l7-7 7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />

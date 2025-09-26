@@ -277,7 +277,14 @@ h1 {
     border: 1px solid rgba(255, 255, 255, .06);
     border-radius: 14px;
     padding: 16px;
-    text-align: center
+    text-align: center;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.kpi svg {
+    width: 32px !important;
+    height: 32px !important;
 }
 
 section {
@@ -304,8 +311,45 @@ section {
     cursor: pointer;
 }
 
-.card-hover:hover {
-    transform: translateY(-10px);
+.card-hover:hover,
+.kpi:hover {
+    box-shadow: 0 10px 22px rgba(27, 111, 255, 0.12);
+}
+
+.card-hover:hover .icon svg {
+    scale: 0.8;
+}
+
+.card .icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.4rem;
+    margin: 10px auto 30px auto;
+
+}
+
+.card-hover .icon i,
+.card-hover .icon svg {
+    transition: 0.2s ease-in-out;
+    width: 30px;
+    height: 30px;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin: 6px 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.card p {
+    text-align: center;
 }
 
 .grid-2 {
@@ -549,8 +593,7 @@ footer {
     box-shadow: 0 12px 32px var(--card);
 } */
 
-.contact-card .chip,
-.hero-card .chip {
+.chip {
     display: inline-block;
     font-size: 12px;
     padding: 4px 10px;
